@@ -19,13 +19,13 @@ class WebCommonServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(LimitOffsetResolver::class, function (Application $app) {
-            return new LimitOffsetResolver(new LimitOffsetRequest($this->getDefaultLimit(), $this->getDefaultOffset()), $app->make(SortResolver::class));
+            return new LimitOffsetResolver(new LimitOffsetRequest($this->getDefaultLimit(), $this->getDefaultOffset()), $app->make(SortResolver::class), $this->getParameterLimit(), $this->getParameterOffset());
         });
         $this->app->singleton(PageableResolver::class, function (Application $app) {
-            return new PageableResolver(new PageableRequest($this->getDefaultPageNumber(), $this->getDefaultPageSize()), $app->make(SortResolver::class));
+            return new PageableResolver(new PageableRequest($this->getDefaultPageNumber(), $this->getDefaultPageSize()), $app->make(SortResolver::class), $this->getParameterPage(), $this->getParameterSize());
         });
         $this->app->singleton(SortResolver::class, function (Application $app) {
-            return new SortResolver();
+            return new SortResolver($this->getParameterSort());
         });
 
         $this->app->bind(LimitOffsetInterface::class, function (Application $app) {
@@ -54,6 +54,31 @@ class WebCommonServiceProvider extends ServiceProvider
     protected function getDefaultPageSize()
     {
         return 25;
+    }
+
+    protected function getParameterLimit()
+    {
+        return 'limit';
+    }
+
+    protected function getParameterOffset()
+    {
+        return 'offset';
+    }
+
+    protected function getParameterPage()
+    {
+        return 'page';
+    }
+
+    protected function getParameterSize()
+    {
+        return 'size';
+    }
+
+    protected function getParameterSort()
+    {
+        return 'sort';
     }
 
     /**
