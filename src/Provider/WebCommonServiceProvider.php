@@ -12,7 +12,6 @@ use Heneke\Web\Common\Request\LimitOffsetInterface;
 use Heneke\Web\Common\Request\LimitOffsetResolver;
 use Heneke\Web\Common\Request\PageableInterface;
 use Heneke\Web\Common\Request\PageableResolver;
-use Heneke\Web\Common\Request\SortInterface;
 use Heneke\Web\Common\Request\SortResolver;
 
 class WebCommonServiceProvider extends ServiceProvider
@@ -34,9 +33,6 @@ class WebCommonServiceProvider extends ServiceProvider
         });
         $this->app->bind(PageableInterface::class, function (Application $app) {
             return $this->getPageableResolver()->resolveWithDefault($this->getPsr7ServerRequest());
-        });
-        $this->app->bind(SortInterface::class, function (Application $app) {
-            return $this->getSortResolver()->resolveSilently($this->getPsr7ServerRequest());
         });
     }
 
