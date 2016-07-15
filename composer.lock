@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3fffb4b6d98d4c40301687509059871c",
-    "content-hash": "998ae253e9689926ca6b03527c1fdce7",
+    "hash": "db3ed4adb0e5307bfeaef6ab95069c0a",
+    "content-hash": "7100ef1efda2394e0c57ca27556fa84a",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -76,16 +76,16 @@
         },
         {
             "name": "heneke/web-common",
-            "version": "dev-master",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heneke/php-web-common.git",
-                "reference": "e82437f9808a8d7b585b718dfff8cee6bba86f95"
+                "reference": "12da92836ef87238958dcc60e120edc51899af83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heneke/php-web-common/zipball/e82437f9808a8d7b585b718dfff8cee6bba86f95",
-                "reference": "e82437f9808a8d7b585b718dfff8cee6bba86f95",
+                "url": "https://api.github.com/repos/heneke/php-web-common/zipball/12da92836ef87238958dcc60e120edc51899af83",
+                "reference": "12da92836ef87238958dcc60e120edc51899af83",
                 "shasum": ""
             },
             "require": {
@@ -118,10 +118,10 @@
             ],
             "description": "Common web request utilities",
             "support": {
-                "source": "https://github.com/heneke/php-web-common/tree/master",
+                "source": "https://github.com/heneke/php-web-common/tree/v0.1.0",
                 "issues": "https://github.com/heneke/php-web-common/issues"
             },
-            "time": "2016-07-14 09:59:13"
+            "time": "2016-07-14 13:49:59"
         },
         {
             "name": "illuminate/contracts",
@@ -1893,9 +1893,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "heneke/web-common": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
