@@ -11,7 +11,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Heneke\Web\Common\Request\LimitOffsetInterface;
 use Heneke\Web\Common\Request\LimitOffsetResolver;
 use Heneke\Web\Common\Request\PageableInterface;
+use Heneke\Web\Common\Request\SortableInterface;
 use Heneke\Web\Common\Request\PageableResolver;
+use Heneke\Web\Common\Request\SortableResolver;
 use Heneke\Web\Common\Request\SortResolver;
 
 class WebCommonServiceProvider extends ServiceProvider
@@ -24,6 +26,9 @@ class WebCommonServiceProvider extends ServiceProvider
         $this->app->singleton(PageableResolver::class, function (Application $app) {
             return new PageableResolver(new PageableRequest($this->getDefaultPageNumber(), $this->getDefaultPageSize()), $app->make(SortResolver::class), $this->getParameterPage(), $this->getParameterSize());
         });
+        $this->app->singleton(SortableResolver::class, function (Application $app) {
+            return new SortableResolver($this->getSortResolver());
+        });
         $this->app->singleton(SortResolver::class, function (Application $app) {
             return new SortResolver($this->getParameterSort());
         });
@@ -33,6 +38,9 @@ class WebCommonServiceProvider extends ServiceProvider
         });
         $this->app->bind(PageableInterface::class, function (Application $app) {
             return $this->getPageableResolver()->resolveWithDefault($this->getPsr7ServerRequest());
+        });
+        $this->app->bind(SortableInterface::class, function (Application $app) {
+            return $this->getSortableResolver()->resolveSilently($this->getPsr7ServerRequest());
         });
     }
 
@@ -103,6 +111,14 @@ class WebCommonServiceProvider extends ServiceProvider
     protected function getSortResolver()
     {
         return $this->app->make(SortResolver::class);
+    }
+
+    /**
+     * @return SortableResolver
+     */
+    protected function getSortableResolver()
+    {
+        return $this->app->make(SortableResolver::class);
     }
 
     /**
