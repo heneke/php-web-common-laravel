@@ -21,10 +21,10 @@ class WebCommonServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(LimitOffsetResolver::class, function (Application $app) {
-            return new LimitOffsetResolver(new LimitOffsetRequest($this->getDefaultLimit(), $this->getDefaultOffset()), $app->make(SortResolver::class), $this->getParameterLimit(), $this->getParameterOffset());
+            return new LimitOffsetResolver(new LimitOffsetRequest($this->getDefaultLimit(), $this->getDefaultOffset()), $this->getSortableResolver(), $this->getParameterLimit(), $this->getParameterOffset());
         });
         $this->app->singleton(PageableResolver::class, function (Application $app) {
-            return new PageableResolver(new PageableRequest($this->getDefaultPageNumber(), $this->getDefaultPageSize()), $app->make(SortResolver::class), $this->getParameterPage(), $this->getParameterSize());
+            return new PageableResolver(new PageableRequest($this->getDefaultPageNumber(), $this->getDefaultPageSize()), $this->getSortableResolver(), $this->getParameterPage(), $this->getParameterSize());
         });
         $this->app->singleton(SortableResolver::class, function (Application $app) {
             return new SortableResolver($this->getSortResolver());
