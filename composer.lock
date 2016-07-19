@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "db3ed4adb0e5307bfeaef6ab95069c0a",
-    "content-hash": "7100ef1efda2394e0c57ca27556fa84a",
+    "hash": "f2bcd5cf243a5f14dcbd0b890e0921ab",
+    "content-hash": "465bacd5bd8fc605eee5e9a5e90168f1",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -76,16 +76,16 @@
         },
         {
             "name": "heneke/web-common",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heneke/php-web-common.git",
-                "reference": "12da92836ef87238958dcc60e120edc51899af83"
+                "reference": "459a13697f52e6eaf20549896002c299cafb1e90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heneke/php-web-common/zipball/12da92836ef87238958dcc60e120edc51899af83",
-                "reference": "12da92836ef87238958dcc60e120edc51899af83",
+                "url": "https://api.github.com/repos/heneke/php-web-common/zipball/459a13697f52e6eaf20549896002c299cafb1e90",
+                "reference": "459a13697f52e6eaf20549896002c299cafb1e90",
                 "shasum": ""
             },
             "require": {
@@ -118,10 +118,10 @@
             ],
             "description": "Common web request utilities",
             "support": {
-                "source": "https://github.com/heneke/php-web-common/tree/v0.1.0",
+                "source": "https://github.com/heneke/php-web-common/tree/v0.2.0",
                 "issues": "https://github.com/heneke/php-web-common/issues"
             },
-            "time": "2016-07-14 13:49:59"
+            "time": "2016-07-19 08:21:45"
         },
         {
             "name": "illuminate/contracts",
